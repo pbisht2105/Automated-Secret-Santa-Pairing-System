@@ -31,9 +31,9 @@ Make sure you have the following tools installed:
 
 #### 1. Create the Database**:
 ```sql
-  -- First, create the database for the project:
+-- First, create the database for the project:
    
-   CREATE DATABASE secret_santa;
+CREATE DATABASE secret_santa;
 ```
 #### 2. Create the employee_salary Table: Create the table to store participant details:
 
