@@ -1,5 +1,5 @@
 -----------------------------------------------
--- AUTOMATED SECRET SANTA PAIRING SYSTEM
+---- AUTOMATED SECRET SANTA PAIRING SYSTEM ----
 -----------------------------------------------
 
 
