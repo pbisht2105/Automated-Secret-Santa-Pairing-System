@@ -86,7 +86,8 @@ This query will return a table of participants with their giver and receiver nam
 #### How the Query Works
 EmployeeRanks CTE: The EmployeeRanks Common Table Expression (CTE) assigns a random rank (row number) to each participant using `ROW_NUMBER()` and orders them randomly with `RAND()`.
 
-#### Pairing Logic: The query uses a JOIN to match each participant (giver) with another (receiver) using the calculated row_num values.
+#### Pairing Logic: 
+The query uses a `JOIN` to match each participant (giver) with another (receiver) using the calculated `row_num` values.
 
 The `receiver.row_num % (SELECT COUNT(*) FROM employee_salary) + 1` ensures the pairing is circular (i.e., the last participant is paired with the first).
 The `WHERE giver.row_num != receiver.row_num` condition ensures that no participant is paired with themselves.
