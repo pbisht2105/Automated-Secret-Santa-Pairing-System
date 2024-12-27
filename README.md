@@ -1,4 +1,5 @@
 # Automated Secret Santa Pairing System
+![Automated Secret Santa Project cover](https://github.com/pbisht2105/Automated-Secret-Santa-Pairing-System/blob/main/Secret%20Santa%20cover.png)
 
 ## Overview
 
@@ -28,13 +29,13 @@ Make sure you have the following tools installed:
 
 ### Setting Up the Database
 
-1. Create the Database**:
+### 1. Create the Database**:
 ```sql
   -- First, create the database for the project:
    
    CREATE DATABASE secret_santa;
 ```
-2. Create the employee_salary Table: Create the table to store participant details:
+### 2. Create the employee_salary Table: Create the table to store participant details:
 
 ```sql
 CREATE TABLE employee_salary (
@@ -44,14 +45,22 @@ CREATE TABLE employee_salary (
 );
 ```
 
-3. Insert Sample Data: Insert some sample participants (employees) into the table:
+### 3. Insert Sample Data: Insert some sample participants (employees) into the table:
 ```sql
 INSERT INTO employee_salary (first_name, last_name)
-VALUES ('Alice', 'Smith'),
-       ('Bob', 'Johnson'),
-       ('Charlie', 'Davis');
+VALUES 
+    ('Alice', 'Smith'),
+    ('Bob', 'Johnson'),
+    ('Charlie', 'Davis'),
+    ('David', 'Martinez'),
+    ('Eva', 'Lopez'),
+    ('Frank', 'Garcia'),
+    ('Grace', 'Miller'),
+    ('Henry', 'Wilson'),
+    ('Ivy', 'Taylor'),
+    ('Jack', 'Anderson');
 ```
-4. To generate the Secret Santa pairings, execute the following SQL query:
+### 4. To generate the Secret Santa pairings, execute the following SQL query:
 ```sql
 WITH EmployeeRanks AS (
     SELECT 
@@ -71,17 +80,18 @@ WHERE giver.row_num != receiver.row_num;
 ```
 This query will return a table of participants with their giver and receiver names, ensuring no one is paired with themselves, and that the pairings are circular.
 
-Sample Output
-[Query Result Screenshot]()
-How the Query Works
+### Sample Output
+[Query Result Screenshot](https://github.com/pbisht2105/Automated-Secret-Santa-Pairing-System/blob/main/Secret%20Santa%20Query%20Output.png)
+
+### How the Query Works
 EmployeeRanks CTE: The EmployeeRanks Common Table Expression (CTE) assigns a random rank (row number) to each participant using ROW_NUMBER() and orders them randomly with RAND().
 
-Pairing Logic: The query uses a JOIN to match each participant (giver) with another (receiver) using the calculated row_num values.
+### Pairing Logic: The query uses a JOIN to match each participant (giver) with another (receiver) using the calculated row_num values.
 
 The receiver.row_num % (SELECT COUNT(*) FROM employee_salary) + 1 ensures the pairing is circular (i.e., the last participant is paired with the first).
 The WHERE giver.row_num != receiver.row_num condition ensures that no participant is paired with themselves.
 
-Challenges Faced
-Circular Pairing: Ensuring that the last person is paired with the first was a key challenge. The modulo operation in the SQL query resolves this.
+### Challenges Faced
+**Circular Pairing**: Ensuring that the last person is paired with the first was a key challenge. The modulo operation in the SQL query resolves this.
 Ensuring Randomness: Ensuring fair and random pairings while maintaining no self-pairing required careful use of ROW_NUMBER() and RAND().
 Scalability: Ensuring the system can scale for larger groups was important, as the logic must adapt to any number of participants.
