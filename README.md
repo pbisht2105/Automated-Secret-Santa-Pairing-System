@@ -81,7 +81,7 @@ WHERE giver.row_num != receiver.row_num;
 This query will return a table of participants with their giver and receiver names, ensuring no one is paired with themselves, and that the pairings are circular.
 
 #### Sample Output
-[Query Result Screenshot](https://github.com/pbisht2105/Automated-Secret-Santa-Pairing-System/blob/main/Secret%20Santa%20Query%20Output.png)
+![Query Result Screenshot](https://github.com/pbisht2105/Automated-Secret-Santa-Pairing-System/blob/main/Secret%20Santa%20Query%20Output.png)
 
 #### How the Query Works
 EmployeeRanks CTE: The EmployeeRanks Common Table Expression (CTE) assigns a random rank (row number) to each participant using ROW_NUMBER() and orders them randomly with RAND().
@@ -95,3 +95,9 @@ The WHERE giver.row_num != receiver.row_num condition ensures that no participan
 **Circular Pairing**: Ensuring that the last person is paired with the first was a key challenge. The modulo operation in the SQL query resolves this.
 Ensuring Randomness: Ensuring fair and random pairings while maintaining no self-pairing required careful use of ROW_NUMBER() and RAND().
 Scalability: Ensuring the system can scale for larger groups was important, as the logic must adapt to any number of participants.
+
+## Author
+
+This project was created and maintained by [Pankaj Singh Bisht](https://github.com/pbisht2105).
+
+You can contact me at: [pbisht2105@gmail.com](mailto:pbisht2105@gmail.com).
