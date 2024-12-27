@@ -1,6 +1,7 @@
-------------------------- 
-Setting Up the Database
--------------------------
+-----------------------------------------------
+-- AUTOMATED SECRET SANTA PAIRING SYSTEM
+-----------------------------------------------
+
 
 -- 1. Create the Database:
 CREATE DATABASE secret_santa;
